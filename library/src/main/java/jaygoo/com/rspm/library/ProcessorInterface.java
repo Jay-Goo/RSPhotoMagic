@@ -19,16 +19,13 @@ public class ProcessorInterface {
 
 	public static ProcessorInterface getProcessor(Context context) {
 		if (processor == null) processor = new ProcessorInterface(context);
-
 		return processor;
 	}
 
 	public Bitmap process(int processorType, Bitmap input) throws ProcessorException {
 		if (mRS == null) throw new ProcessorException(ProcessorException.NOT_INITIALIZED);
-
 		Bitmap output = null;
 		SuperProcessor processor;
-
 		switch (processorType) {
 			case RSPhotoMagicType.BINARIZE:
 				processor = new BinarizeProcessor(mRS);
